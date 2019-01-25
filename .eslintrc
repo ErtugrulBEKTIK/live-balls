@@ -1,0 +1,9 @@
+{
+  "extends": "rallycoding",
+  "rules": {
+    "import/newline-after-import": false
+  },
+  "env": {
+    "mocha": true
+  }
+}

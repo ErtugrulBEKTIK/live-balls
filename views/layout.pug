@@ -5,5 +5,10 @@ html
     title Live Balls
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/semantic.min.css')
-  body
+  body(ng-app='app')
     block content
+
+  block javascripts
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular.min.js")
+    script(src="/javascripts/main.js")
+    script(src="/javascripts/indexController.js")
