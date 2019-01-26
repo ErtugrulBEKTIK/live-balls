@@ -19,7 +19,6 @@ io.on('connection', (socket) => {
     };
     const userData = Object.assign(data, defaultData);
     users[socket.id] = userData;
-    console.log(users);
 
     socket.broadcast.emit('newUser', users[socket.id]);
     socket.emit('initPlayers', users);
@@ -28,6 +27,17 @@ io.on('connection', (socket) => {
   socket.on('disconnect', () => {
     socket.broadcast.emit('disUser', users[socket.id]);
     delete users[socket.id];
+  });
+
+  socket.on('animate', (data) => {
+    users[socket.id].position.x = data.x;
+    users[socket.id].position.y = data.y;
+
+    socket.broadcast.emit('animate', {
+      socketId: socket.id,
+      x: data.x,
+      y: data.y
+    });
   });
 });
 
