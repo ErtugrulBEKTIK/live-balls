@@ -1,9 +1,14 @@
 {
   "extends": "rallycoding",
   "rules": {
-    "import/newline-after-import": false
+    "import/newline-after-import": false,
+    "no-param-reassign": 0
   },
   "env": {
     "mocha": true
+  },
+  "globals": {
+    "app": true,
+    "prompt": true
   }
 }
