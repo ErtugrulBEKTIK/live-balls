@@ -16,6 +16,7 @@
   ],
   "dependencies": {
     "angular": "^1.7.6",
-    "semantic": "^2.4.1"
+    "semantic": "^2.4.1",
+    "jquery": "^3.3.1"
   }
 }

@@ -9,6 +9,7 @@
   },
   "globals": {
     "app": true,
-    "prompt": true
+    "prompt": true,
+    "$": true
   }
 }
