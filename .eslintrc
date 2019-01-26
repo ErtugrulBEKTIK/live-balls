@@ -10,6 +10,7 @@
   "globals": {
     "app": true,
     "prompt": true,
-    "$": true
+    "$": true,
+    "document": true
   }
 }

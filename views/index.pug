@@ -14,15 +14,15 @@ block content
             .relative
               span.name {{player.username}}
               // .message
-        .ui.items.chat
+        .ui.items.chat#chat-area
           .item(ng-repeat="message in messages")
-            .content(ng-if="!message.type")
-              span [SERVER] &nbsp;
+            .content
+              span(ng-if="!message.type") [SERVER] &nbsp;
               a.header.name {{ message.username }} &nbsp;
               .description.message
                 | {{ message.text }}
 
-        .ui.action.input.fluid
-          input(type='text', placeholder='Type here...')
-          button.ui.button Send
+        form.ui.action.input.fluid(ng-submit="newMessage()")
+          input(ng-model='message', placeholder='Type here...')
+          button.ui.button(type="submit") Send
 
