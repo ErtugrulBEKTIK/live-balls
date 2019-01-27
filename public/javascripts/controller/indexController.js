@@ -1,8 +1,11 @@
-app.controller('indexController', ['$scope', 'indexFactory', 'configFactory', ($scope, indexFactory, configFactory) => {
+app.controller(
+  'indexController',
+  ['$scope', 'indexFactory', 'configFactory',
+  ($scope, indexFactory, configFactory) => {
   $scope.messages = [];
   $scope.players = {};
   $scope.init = () => {
-    const username = prompt('please enter username');
+    const username = prompt('Please enter a username.');
     if (username) {
       initSocket(username);
     } else {
@@ -32,7 +35,7 @@ app.controller('indexController', ['$scope', 'indexFactory', 'configFactory', ($
       const socketUrl = await configFactory.getConfig();
       const socket = await indexFactory.connectSocket(socketUrl.data.socketUrl, connectionOptions);
 
-      socket.emit('newUser', {username});
+      socket.emit('newUser', { username });
       socket.on('newUser', (data) => {
         const messageData = {
           type: 0, //info
@@ -63,7 +66,7 @@ app.controller('indexController', ['$scope', 'indexFactory', 'configFactory', ($
       });
 
       socket.on('animate', (data) => {
-        $(`#${data.socketId}`).animate({left: data.x, top: data.y}, () => {
+        $(`#${data.socketId}`).animate({ left: data.x, top: data.y }, () => {
           animate = false;
         });
       });
@@ -88,10 +91,10 @@ app.controller('indexController', ['$scope', 'indexFactory', 'configFactory', ($
             y -= 40;
           }
 
-          socket.emit('animate', {x, y});
+          socket.emit('animate', { x, y });
 
           animate = true;
-          $(`#${socket.id}`).animate({left: x, top: y}, () => {
+          $(`#${socket.id}`).animate({ left: x, top: y }, () => {
             animate = false;
           });
         }

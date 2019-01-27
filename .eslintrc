@@ -12,6 +12,5 @@
     "prompt": true,
     "$": true,
     "document": true
-  },
-  "parser": "babel-eslint"
+  }
 }
